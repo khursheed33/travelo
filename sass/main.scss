@@ -1,0 +1,28 @@
+// Importing resources to be used in this project;
+// Abstract Files
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/variables";
+// Base Files
+@import "bases/base";
+@import "bases/animations";
+@import "bases/utilities";
+@import "bases/typography"; 
+// Pages files
+@import "pages/home";
+// component files
+@import "components/button";
+@import "components/composition";
+@import "components/feature-box";
+@import "components/cards";
+@import "components/stories";
+@import "components/bg-video";
+@import "components/form";
+
+// layout files
+@import "layouts/navigation";
+@import "layouts/header";
+@import "layouts/grid";
+@import "layouts/footer";
+@import "layouts/popup";
+// Coding section

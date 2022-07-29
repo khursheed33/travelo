@@ -1,0 +1,137 @@
+
+
+.form{
+  width: 50%;
+  padding: 6rem;
+  &:not(:last-child){
+    margin-bottom: 2rem;
+  }
+
+  @include respond(tab-port){
+    width: 100%;
+  }
+
+  &__group{
+    margin-bottom: 2rem;
+    
+
+  }
+
+  &__input{
+    width: 90%;
+    color: inherit;
+    font-size: 1.5rem;
+    padding: 1.5rem 2rem;
+    border: none;
+    border-radius: 3px;
+    opacity: 0.9;
+    border-bottom: 3px solid transparent;
+    display: block; 
+
+    @include respond(phone){
+      font-size: 1.3rem;
+      padding: 1rem 1rem;
+    }
+
+    &:focus{
+      outline: none;
+      border-bottom: 3px solid $color-primary-dark;
+      color: grey;
+      box-shadow: 0.5rem 0.3rem 2rem rgba($color-black,0.25);
+     
+
+    }
+
+    &:focus:invalid{
+      border-bottom: 3px solid orangered;
+
+    }
+    &::-webkit-placeholder{
+      color: grey;
+
+    }
+
+  }
+
+  &__label{
+    color: grey;
+    font-size: 1.5rem;
+    margin-top: 0.8rem;
+    margin-left: 2rem;
+    transition: all .3s;
+    @include respond(phone){
+      font-size: 1.2rem;
+    }
+  }
+
+  &__input:placeholder-shown + &__label{
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4rem);
+  }
+  &__radio-group{
+    width: 48%;
+    display: inline-block;
+    position: relative;
+
+  }
+
+  &__radio-input{
+    opacity: 0;
+  }
+  &__radio-label{
+    font-size: 1.6rem;
+    cursor: pointer;
+    padding-left: 2.5rem;
+    @include respond(phone){
+      font-size: 1.4rem;
+      padding-left: 0rem;
+      margin-top: -0.5rem;
+    }
+    
+  }
+  &__radio-button{
+    height: 3rem;
+    width: 3rem;
+    border: 5px solid $color-primary-dark;
+    border-radius: 50%;
+    position: absolute;
+    top: -0.2rem;
+    left: 0;
+
+    @include respond(phone){
+      height: 2rem;
+      width: 2rem;
+      top: 1rem;
+    border: 1.5px solid $color-primary-dark;
+    }
+
+    &::after{
+      content: '';
+      display: inline-block;
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      background-color: $color-primary-dark;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+
+      @include respond(phone){
+        width: 1rem;
+      height: 1rem;
+      }
+      
+    }
+  }
+
+  &__radio-input:checked + &__radio-label &__radio-button::after{
+    opacity: 1;
+  }
+ 
+  
+}
+

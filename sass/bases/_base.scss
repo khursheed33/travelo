@@ -1,0 +1,44 @@
+*,
+*::before,/*For all the before elements*/
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  /*Inherit makes a default property for all the element that uses box-sizing*/
+}
+
+html {
+  font-size: 62.5%; //1em = 10px , 10/16 = 62.5%
+
+
+  
+  @include respond(tab-land){
+    font-size: 56.25%;  //1em = 9px , 9/16 = 56.25%
+  }
+
+  @include respond(tab-port){
+    font-size: 50%;  //1em = 8px , 10/16 = 50%
+  }
+
+  @include respond(phone){
+    font-size: 31.25%;  //1em = 5px , 5/16 = 31.25%
+  }
+  @include respond(big-desktop){
+    font-size: 75%;  //1em = 12px , 12/16 = 75%
+  }
+
+}
+
+
+
+body {
+  box-sizing: border-box;
+  padding: 3rem;
+  
+  @include respond(tab-port){
+    padding: 0;
+  }
+}
+
+
+

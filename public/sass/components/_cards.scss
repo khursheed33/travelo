@@ -1,0 +1,248 @@
+.card{
+    perspective: 200rem;
+    -moz-perspective: 200rem;
+    position: relative;
+    height: 50rem;
+
+
+   &__side{
+    height: 50rem;
+    font-size: $default-font-size;
+    transition: all 0.8s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden;
+    overflow: hidden;
+    box-shadow: 0.5rem 0.5rem 1rem rgba(0,0,0,0.3);
+    border-radius: 3px;
+
+    &--front{
+        background-color: white;
+    }
+    &--back{
+        transform: rotateY(180deg);
+        &-1{
+            background-image:linear-gradient(to right bottom, $color-secondary-light,$color-secondary-dark);
+        }  
+        &-2{
+            background-image:linear-gradient(to right bottom, $color-primary-light,$color-primary-dark);
+        } 
+        &-3{
+            background-image:linear-gradient(to right bottom, rgba($color-tertiary-light,0.8),
+            rgba($color-tertiary-dark,0.7));
+        }
+    }
+   }
+
+
+   &:hover &__side--front{
+       transform: rotateY(180deg);
+   }
+
+   &:hover &__side--back{
+    transform: rotateY(0);
+}
+
+
+// FRONT SIDE OF CARD
+&__picture{
+    background-blend-mode: screen;
+    background-size: cover;
+    height: 22rem;
+    clip-path: polygon(0 0 ,100% 0, 100% 85%, 0 100%);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+
+
+    &--1{
+        background-image: linear-gradient(to right bottom, 
+        $color-secondary-light, $color-secondary-dark),
+        url('../img/tour-card-1.jpg');
+        @include respond(phone){
+            background-image: linear-gradient(to right bottom, 
+        $color-secondary-light, $color-secondary-dark),
+        url('../img/tour-card-1-small.jpg');
+
+        }
+    }
+    &--2{
+        background-image: linear-gradient(to right bottom, rgba($color-primary-dark,0.85),
+        rgba($color-primary-dark,0.85)),url('../img/tour-card-2.jpg');
+        @include respond(phone){
+            background-image: linear-gradient(to right bottom, 
+        $color-secondary-light, $color-secondary-dark),
+        url('../img/tour-card-2-small.jpg');
+
+        }
+        
+    }
+    &--3{
+        background-image: linear-gradient(to right bottom, rgba($color-tertiary-light,0.85),
+        rgba($color-tertiary-dark,0.85)),url('../img/tour-card-3.jpg');
+        @include respond(phone){
+            background-image: linear-gradient(to right bottom, 
+        $color-secondary-light, $color-secondary-dark),
+        url('../img/tour-card-3-small.jpg');
+
+        }
+        
+    }
+}
+
+
+&__heading{
+    text-transform: uppercase;
+    text-align: right;
+    font-size: 2.6rem;
+    color: $color-white;
+    position: absolute;
+    font-weight: 300;
+    top: 12rem;
+    right: 2rem;
+    width: 70%;
+}
+
+    &__heading-span{
+        padding: 1rem 1.5rem;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+     
+        &--1{
+            background-image: linear-gradient(to right bottom, rgba($color-secondary-light,0.85),
+             rgba($color-secondary-dark,0.85));
+        }
+        &--2{
+            background-image: linear-gradient(to right bottom, rgba($color-primary-dark,0.85),
+             rgba($color-primary-dark,0.85));
+        }
+        &--3{
+            background-image: linear-gradient(to right bottom, rgba($color-tertiary-light,0.85),
+             rgba($color-tertiary-dark,0.85));
+        }
+    }
+
+    &__details{
+       padding: 2rem;
+
+        ul{
+            width: 80%;
+            list-style: none;
+            margin: 0 auto;
+
+            li{
+                font-size: 1.4rem;
+                color: grey;
+                text-transform: capitalize;
+                text-align: center;
+                padding:1.2rem;
+
+                &:not(:last-child){
+                    border-bottom: 0.1rem solid #eee;;
+                }
+
+
+
+            }
+        }
+    }
+    // BACK SIDE OF CARD
+    &__cta{
+        position: absolute;
+        top:50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 90%;
+        text-align: center;
+
+    }
+    &__price-box{
+        text-align: center;
+        color: $color-white;
+        margin-bottom: 8rem;
+    }
+    &__price-only{
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        
+    }
+    &__price-value{
+        font-family: 'Segoe UI', sans-serif;
+        font-size:6rem;
+        color: rgba($color-white,0.8);
+        font-weight: 100;
+        margin-bottom: 2rem;
+        padding-bottom: 4rem;
+    }
+    &__btn--1{
+        color: rgba($color-secondary-dark,0.85)
+    }
+    &__btn--2{
+        color: rgba($color-primary-dark,0.85)
+    }
+    &__btn--3{
+        color: rgba($color-tertiary-dark,0.85)
+    }
+
+    // Media
+
+@include respond(tab-port) {
+    height: auto;
+    border-radius: 3px;
+    position: relative;
+    background-color: $color-white;
+    box-shadow: 0 1rem 3rem rgba($color-black,0.15);
+
+       &__side{
+        height: auto;
+        position: relative;
+        box-shadow: none;
+
+        &--back{
+            transform:rotateY(0);
+            clip-path: polygon(0 15% ,100% 0, 100% 100%, 0 100%);
+            
+           
+        }
+       }
+    
+    
+       &:hover &__side--front{
+           transform: rotateY(0);
+       }
+    
+   
+    
+    
+    // FRONT SIDE OF CARD
+    
+        // BACK SIDE OF CARD
+        &__cta{
+            position: relative;
+            top:0;
+            left: 0;
+            transform: translate(0);
+            width: 100%;
+            padding: 7rem 4rem 4rem 4rem;
+    
+        }
+
+       &__price-box{
+           margin-bottom: 2rem;
+
+       }
+ 
+        &__price-value{
+            font-size: 4rem;
+            padding-bottom: 0;
+        }
+     
+    
+    }
+
+}
+
+
+
+    
